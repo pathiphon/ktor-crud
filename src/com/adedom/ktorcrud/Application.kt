@@ -14,26 +14,26 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import org.jetbrains.exposed.sql.Database
 
-fun main() {
-    val port = 3306
-    val host = "192.168.1.15"
-    val config = HikariConfig().apply {
-        jdbcUrl = "jdbc:mysql://$host:$port/ktor_crud"
-        driverClassName = "com.mysql.cj.jdbc.Driver"
-        username = "root"
-        password = "abc456"
-        maximumPoolSize = 10
-    }
-    val dataSource = HikariDataSource(config)
-    Database.connect(dataSource)
-
-    embeddedServer(
-        factory = Netty,
-        port = port,
-        host = host,
-        module = Application::module
-    ).start(wait = true)
-}
+//fun main() {
+//    val port = 3306
+//    val host = "192.168.43.22"
+//    val config = HikariConfig().apply {
+//        jdbcUrl = "jdbc:mysql://$host:$port/ktor_crud"
+//        driverClassName = "com.mysql.cj.jdbc.Driver"
+//        username = "root"
+//        password = "abc456"
+//        maximumPoolSize = 10
+//    }
+//    val dataSource = HikariDataSource(config)
+//    Database.connect(dataSource)
+//
+//    embeddedServer(
+//        factory = Netty,
+//        port = port,
+//        host = host,
+//        module = Application::module
+//    ).start(wait = true)
+//}
 
 fun Application.module() {
     install(DefaultHeaders)
